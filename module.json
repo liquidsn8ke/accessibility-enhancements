@@ -1,0 +1,19 @@
+{
+  "name": "accessibility-tweaks",
+  "id": "accessibility-tweaks",
+  "title": "Accessibility Tweaks",
+  "description": "",
+  "version": "0.0.0",
+  "minimumCoreVersion": "11",
+  "compatibleCoreVersion": "11",
+  "author": "cora",
+  "scripts": [
+    "scripts/module.js"
+  ],
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "readme": "",
+  "changelog": "",
+  "license": ""
+}
