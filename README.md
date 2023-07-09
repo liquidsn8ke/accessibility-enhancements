@@ -40,3 +40,4 @@ If a compendium of the "item" type is open, the module adds a button beside each
     - Ideally, the button would not appear for spells at all.
   - I'd like to add the "add item" button to the compendium browser and the compendium tab too.
 - If the module is enabled in the world, the button shows for all users. It'd be better if the button was governed by a client-side setting so that sighted users could choose to disable it. That said, it's theoretically harmless if not even potentially useful even for them, so that's not so bad.
+- The module noticeably increases the load times of compendiums due to how inefficient it is in cycling through the DOM. There is a lot of room for performance improvements and optimisation.
