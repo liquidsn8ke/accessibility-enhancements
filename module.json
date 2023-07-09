@@ -14,7 +14,7 @@
     "module.js"
   ],
   "url": "https://github.com/silvative/accessibility-enhancements",
-  "manifest": "https://raw.githubusercontent.com/silvative/pf2e-exploration-effects/master/module.json",
-  "download": "https://github.com/silvative/pf2e-exploration-effects/archive/refs/heads/main.zip",
+  "manifest": "https://raw.githubusercontent.com/silvative/accessibility-enhancements/master/module.json",
+  "download": "https://github.com/silvative/accessibility-enhancements/archive/refs/heads/main.zip",
   "readme": "https://github.com/silvative/accessibility-enhancements#readme"
 }
