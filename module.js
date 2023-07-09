@@ -1,21 +1,5 @@
-Hooks.on("init", () => {
-
-    console.log("Hook Debug Init");
-
-    // Register keybind
-    game.keybindings.register("accessibility-tweaks", "addTabIndex", {
-        name: "Allow tab cycling",
-        hint: "After searching for a document in the compendium tab, press this hotkey to add the tabIndex property to all of the results",
-        editable: [],
-        onDown: () => {
-        },
-    });
-
-})
-
+// Add labels to most static UI elements
 Hooks.on("ready", () => {
-
-    console.log("Hook Debug Ready");
     
     // Give labels to the sidebar tabs
     for (const tab of document.querySelectorAll("nav.tabs a")) {
@@ -43,12 +27,13 @@ Hooks.on("ready", () => {
     
 })
 
+// Function that adds an item to an actor. Feed it the actor's world ID, the item's ID, and the compendium's ID.
 async function addItemToActor(entry) {
     // Gather info
-    const itemID = entry.getAttribute("data-uuid") || entry.getAttribute("data-document-id");
-    const myActor = game.user.character;
-    const sourceCompendium = entry.offsetParent.getAttribute("id").replace("compendium-", "Compendium.");
-    console.log(itemID + " button clicked in " + sourceCompendium + " by " + myActor.name);
+    const itemID = entry.getAttribute("data-uuid") || entry.getAttribute("data-document-id");                   //This isn't standardised between item types, but checking both gives us coverage
+    const myActor = game.user.character;                                                                        //ez
+    const sourceCompendium = entry.offsetParent.getAttribute("id").replace("compendium-", "Compendium.");       //Why use good code when bad code do trick
+    console.log(itemID + " button clicked in " + sourceCompendium + " by " + myActor.name);                     //Why use bad code when worse code do trick
     // Create item
     const itemUUID = sourceCompendium + ".Item." + itemID;
     console.log(itemUUID);
@@ -63,7 +48,7 @@ Hooks.on("renderCompendium", () => {
 
     console.log("Hook Debug Render Compendium");
 
-    // Half-hearted (non-functional) attempt to check if the compendium's already been labelled (doesn't work)
+    // Incredibly skillful way to check if the compendium's already been yassified
     for ( const compendium of document.querySelectorAll("div.sidebar-popout.Compendium-sidebar")) {
         const compendiumID = compendium.getAttribute("id").replace("compendium-", "Compendium.");
         if ( compendium.getAttribute("data-labelled") ) {
@@ -74,7 +59,7 @@ Hooks.on("renderCompendium", () => {
                 const labelText = entry.childNodes[3].innerText;
                 entry.setAttribute("aria-label", labelText);
                 entry.setAttribute("tabindex", 0);
-                // If the document is an item, also add a button to add it to selected actor (likely only supports PF2E- should I add a setting to remove it for other systems?)
+                // If the document is an item, also add a button to add it to selected actor (this likely only supports PF2E- should I add a setting to remove it for other systems?)
                 if ( entry.classList.contains("item") ) {
                     //Create the button
                     const label = document.createElement("label");
