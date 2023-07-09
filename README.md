@@ -1,5 +1,3 @@
-# accessibility-enhancements
-
 This module provides several minor modifications to the Foundry interface in order to improve accessibility. Don't expect the world here- I'm not a miracle worker- but I have done my best. There are a lot of places with obvious paths for improvement that I have not taken due to a lack of time or skill. About the best I can say is that I did better than I had expected - this module's goal is more about getting the player experience closer to serviceable by patching obvious holes while we wait for core improvements. I lack the skill to make it a perfect experience. My hope is that others with higher power levels will see the terrible job I've done and improve on it. To that end, I've listed some of the known issues and limitations in this readme file- perhaps they can serve as inspiration to someone.
 
 **Code contributions are very, very welcome. This is a side project for me and I am bad at programming. Not only that, but I also do not personally use a screen reader, so I am very dependent on the support of other, more talented individuals in keeping it functional.**
@@ -14,9 +12,9 @@ Several static UI elements have been given a label which allows screen readers t
  - Canvas controls & layer tools
  - Sidebar tab navigation buttons
 
-*IN THEORY*, this should work with modules that add new buttons to these locations, since I didn't hardcode any of the values. No guarantees though.
-
 In addition, all documents within compendiums have a label applied to their directory listing when that compendium is open.
+
+(Note: *IN THEORY*, this should work with modules that add new buttons to these locations, since I didn't hardcode any of the values. No guarantees though.)
 
 #### Known issues & limitations
 
@@ -24,7 +22,7 @@ In addition, all documents within compendiums have a label applied to their dire
 - Here I mostly targeted "lists" of buttons so it's likely some one-offs (like the macro directory button or the scene navigation collapse button) were skipped
 - Empty macro "slots" got no label, but I think getting the name of the macro to appear was the most important.
 
-### Add Item Button
+### 'Add Item' Button
 
 If a compendium of the "item" type is open, the module adds a button beside each displayed item. Clicking on the button adds a copy of that item to your character.
 
