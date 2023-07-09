@@ -2,7 +2,7 @@ This module provides several minor modifications to the Foundry interface in ord
 
 I won't pretend that it's perfect - there are a lot of places with obvious paths for improvement that I have not taken due to a lack of time or skill. About the best I can say is that I did better than I had expected - this module's goal is more about getting the player experience closer to serviceable by patching obvious holes while we wait for core improvements. My hope is that others with higher power levels will see the terrible job I've done and improve on it. To that end, I've listed some of the known issues and limitations in this readme file- perhaps they can serve as inspiration to someone.
 
-**Code contributions are very, very welcome. This is a side project for me and I am bad at programming. Not only that, but I also do not personally use a screen reader, so I am very dependent on the support of other, more talented individuals in keeping it functional.**
+**Code contributions are very, very welcome. I do not personally use a screen reader, so any support that can be offered is appreciated.**
 
 ## Features
 
