@@ -1,43 +1,56 @@
-This module provides several minor modifications to the Foundry interface in order to improve accessibility. 
+This module provides several minor modifications to the Foundry interface in order to improve accessibility.
 
 I won't pretend that it's perfect - there are a lot of places with obvious paths for improvement that I have not taken due to a lack of time or skill. About the best I can say is that I did better than I had expected - this module's goal is more about getting the player experience closer to serviceable by patching obvious holes while we wait for core improvements. My hope is that others with higher power levels will see the terrible job I've done and improve on it. To that end, I've listed some of the known issues and limitations in this readme file- perhaps they can serve as inspiration to someone.
 
 **Code contributions are very, very welcome. I do not personally use a screen reader, so any support that can be offered is appreciated.**
 
-## Features
+# Features
 
-### Labelled fields
+## Labelled fields
 
-Several static UI elements have been given a label which allows screen readers to determine their function. The affected buttons are: 
- - Scene navigation buttons
- - Macro bar buttons
- - Canvas controls & layer tools
- - Sidebar tab navigation buttons
+Several static UI elements have been given a label which allows screen readers to determine their function. This mostly affects buttons like the sidebar tab buttons or the scene controls, which don't have any inner text to fall back on and so weren't very accessible.
 
-In addition, all documents within compendiums have a label applied to their directory listing when that compendium is open.
+Uses manually chosen labels for some and attempts to fallback automatically generated labels for others. I welcome feedback on labels which are unclear or too long, and any buttons which are missing labels.
 
 (Note: *IN THEORY*, this should work with modules that add new buttons to these locations, since I didn't hardcode any of the values. No guarantees though.)
 
-#### Known issues & limitations
+## 'Add Item' Functionality
 
-- There are likely many more buttons which are not labelled. If anyone wants to point me at them I can see if I can hit them too. Static buttons (which are always present) are a lot easier to do but I will try others.
-- Here I mostly targeted "lists" of buttons so it's likely some one-offs (like the macro directory button or the scene navigation collapse button) were skipped
-- Empty macro "slots" got no label, but I think getting the name of the macro to appear was the most important.
-
-### 'Add Item' Button
-
-If a compendium of the "item" type is open, the module adds a button beside each displayed item. Clicking on the button adds a copy of that item to your character.
+The module provides two new ways to add items to a character that do not require drag and drop.
 
 (Note: A Foundry Item is a document which is added to an Actor. It encompasses the Pathfinder concepts of feats, actions, effects, ancestries, equipment, etc, not only physical objects.)
 
-#### Known issues & limitations
+  - probably only works in Pathfinder 2e
+  - requires the core "create new items" permission to be enabled for the user
+  - uses the controlled token, and will fall back to the assigned actor if the former is not found. This means that you can theoretically now add items to familiars and animal companions too, if you are able to select their token. This hasn't been tested yet. 
+  - doesn't ask which feat slot to place a feat in, nor which spell list, which means it can't be used for spells at all and always puts feats in the "bonus feats" slot.
 
-- It finds your character by checking your user's "assigned" actor, so if you don't have one set, this won't work. You can set one easily, but this creates unfortunate edge cases.
-    - If you have several characters (EG- you own a familiar, or an animal companion) you would need to change your assigned actor when adding items to them or the items would be added to your PC.
-    - It also makes the feature borderline useless for a GM. 
-- This module was designed with the PF2E system in mind, and I would not be surprised if aspects of (if not everything about) the "add item" button didn't work on other systems. If it turns out to be iredeemably broken we should add a setting to disable it for other systems, but I don't have time to test it right now.
-  - Even in the PF2E system, I think it's essentially impossible to make the "add item" button work for spells, but it seems to work for everything else at least.
-    - Ideally, the button would not appear for spells at all.
-  - I'd like to add the "add item" button to the compendium browser and the compendium tab too.
+### Button
+
+If a compendium of items is open, the module adds a button beside each displayed item. Clicking on the button adds a copy of that item to your character.
+
+- I'd like to add the button to the compendium browser and the compendium sidebar tab too.
 - If the module is enabled in the world, the button shows for all users. It'd be better if the button was governed by a client-side setting so that sighted users could choose to disable it. That said, it's theoretically harmless if not even potentially useful even for them, so that's not so bad.
-- The module noticeably increases the load times of compendiums due to how inefficient it is in cycling through the DOM. There is a lot of room for performance improvements and optimisation.
+
+### Hotkey
+
+Registers a hotkey (currently 'X') which checks every element beneath the mouse cursor. If any of them correspond to an item document, it tries to add it to the actor in the same way as the above. Unlike the dedicated button, this hotkey supports the compendium browser and the compendium sidebar.
+
+The hotkey cannot be rebound but it can be disabled in the module settings.
+
+- It'd be neat if this would prioritise the screen reader's "focused" element over the hovered one if one was present, but I'm not sure what selector to use for that.
+
+## Audio Feedback
+
+Adds sound cues for certain actions to provide non-visual feedback that they were executed successfully. The sounds can be disabled by a clientside module setting.
+
+### Create Item
+
+Plays a "rummaging" sound on the "createItem" hook. Helps to provide feedback that you successfully added an item to your sheet.
+
+### Render Application
+
+Plays a "ding" sound effect on the "renderApplication" hook. That doesn't cover every time a new window is opened but it does cover a lot, including cases like choiceset popups which were previously not signposted to screen readers at all.
+
+- It would be better if we drew the screenreader's focus to new applications instead, but that's more difficult.
+  - Apparently the "sell all treasure" button does this correctly - copy whatever it's doing? Something to do with web dialogs.
