@@ -1,0 +1,41 @@
+// Some changes that make it easier to interact with tokens without right clicks
+
+Hooks.on("init", () => {
+
+    /* WIP
+    game.settings.register('accessibility-enhancements', 'leftClickTarget', {
+        name: 'Left Click Target',
+        hint: 'Left Click on unowned tokens to target them',
+        scope: 'client',
+        config: true,
+        type: Boolean,
+        default: false,
+        onChange: value => {},
+    });
+    */
+
+    game.settings.register('accessibility-enhancements', 'leftClickTokenHUD', {
+        name: 'Left Click TokenHUD',
+        hint: 'Left Click on owned tokens opens the Token HUD (Experimental)',
+        scope: 'client',
+        config: true,
+        type: Boolean,
+        default: false,
+        onChange: value => {},
+    });
+})
+
+Hooks.on("controlToken", (token, controlled) => {
+    if ( game.settings.get('accessibility-enhancements', 'leftClickTokenHUD') === true ) {
+        // thank lebombjames1- or blame him if this implementation is an atrocity
+        if (controlled === true) token._onClickRight()
+    }
+})
+
+/* WIP
+window.addEventListener('click', event => {
+    if ( game.settings.get('accessibility-enhancements', 'leftClickTarget') === true ) {
+            console.log(event);
+    }
+})
+*/

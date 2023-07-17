@@ -23,6 +23,7 @@ The module provides two new ways to add items to a character that do not require
   - probably only works in Pathfinder 2e
   - requires the core "create new items" permission to be enabled for the user
   - uses the controlled token, and will fall back to the assigned actor if the former is not found. This means that you can theoretically now add items to familiars and animal companions too, if you are able to select their token. This hasn't been tested yet. 
+    - it'd be better if there was some kind of drop-down, maybe one that could check which sheet it had been opened from or which sheets are open
   - doesn't ask which feat slot to place a feat in, nor which spell list, which means it can't be used for spells at all and always puts feats in the "bonus feats" slot.
 
 ### Button
@@ -54,3 +55,24 @@ Plays a "ding" sound effect on the "renderApplication" hook. That doesn't cover 
 
 - It would be better if we drew the screenreader's focus to new applications instead, but that's more difficult.
   - Apparently the "sell all treasure" button does this correctly - copy whatever it's doing? Something to do with web dialogs.
+
+## Alternate Token Interactions
+
+Some users use trackpads or touch interfaces or other control schemas that don't support right click. Some people don't want to relearn their existing muscle memory. Some people just irrationally hate right clicks. For good or for ill, we want to empower you.
+
+The module adds a setting (disabled by default) which give an alternate way to open the Token HUD.
+
+- Disabled by default because it seems potentially super annoying
+- Seems to behave kind of strangely sometimes, not extensively tested yet
+- I'd love to support clicking on an unowned token to target it, but I haven't spent much time on getting it working yet
+
+## High Contrast Character Sheets
+
+**PF2E player character sheet only**
+
+Adds an optional override (configured in module settings) which takes a hatchet to the PC character sheet to offer a "high-contrast" option. Both a dark and a light mode are offered. 
+
+- The setting is clientside and applies to all character sheets. It doesn't affect how other users see the sheets.
+- Though I would be happy if they enjoyed it, this setting was not primarily intended to appeal to users who are seeking a "conventional" dark mode character sheet. The goal was to maximise contrast, not prioritise aesthetics.
+- This setting may make the sheets harder to use for many users, especially in places where the colours were used to convey information. There may be some places (like the proficiency dropdown selector) which look objectively worse. 
+- There were several fields which sadly did not use variables to set their colours, requiring me to use gross overrides or important tags which are not best practice ordinarily. I would prefer to do this inside the system, but that will take additional investigation.

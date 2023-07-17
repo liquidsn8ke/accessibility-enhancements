@@ -11,7 +11,14 @@
   "verified": "11"
   },
   "scripts": [
-    "module.js"
+    "./scripts/additems.js",
+    "./scripts/audiocues.js",
+    "./scripts/labeler.js",
+    "./scripts/norightclick.js",
+    "./scripts/highcontrast.js"
+  ],
+  "styles": [
+    "highcontrast.css"
   ],
   "url": "https://github.com/silvative/accessibility-enhancements",
   "manifest": "https://raw.githubusercontent.com/silvative/accessibility-enhancements/master/module.json",
