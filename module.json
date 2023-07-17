@@ -2,7 +2,7 @@
   "id": "accessibility-enhancements",
   "title": "Accessibility Enhancements",
   "description": "Minor modifications to the Foundry interface to improve accessibility",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "authors": [{
     "name": "Cora"
   }],
