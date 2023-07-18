@@ -14,7 +14,7 @@ Uses manually chosen labels for some and attempts to fallback automatically gene
 
 (Note: *IN THEORY*, this should work with modules that add new buttons to these locations, since I didn't hardcode any of the values. No guarantees though.)
 
-## 'Add Item' Functionality
+## Drag & Drop Alternatives
 
 The module provides two new ways to add items to a character that do not require drag and drop.
 
