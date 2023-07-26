@@ -12,12 +12,23 @@ Hooks.on("init", () => {
 
     // Allows the keybinding to be toggled on and off.
     game.settings.register('accessibility-enhancements', 'addItemHotkey', {
-        name: 'Enable Hotkey (X)',
-        hint: 'Disable to remove the hotkey (Requires refresh to take effect)',
+        name: 'Enable "Add Item" Hotkey',
+        hint: 'Adds a hotkey (X) which can be pressed in the compendium browser, compendium window, or compendium sidebar tab to add the hovered item to your character.',
         scope: 'client',
         config: true,
         type: Boolean,
-        default: true,
+        default: false,
+        onChange: value => {},
+    });
+
+    // Allows the keybinding to be toggled on and off.
+    game.settings.register('accessibility-enhancements', 'addItemButton', {
+        name: 'Enable "Add Item" Button',
+        hint: 'Adds a button to the compendium window which can be pressed to add the item to your character',
+        scope: 'client',
+        config: true,
+        type: Boolean,
+        default: false,
         onChange: value => {},
     });
 
@@ -70,36 +81,38 @@ Hooks.on("init", () => {
 // Add buttons to compendium popout window when it is opened
 Hooks.on("renderCompendium", () => {
 
-    // Incredibly skillful way to check if the compendium's already been yassified
-    for ( const compendium of document.querySelectorAll("div.sidebar-popout.Compendium-sidebar")) {
-        const compendiumID = compendium.getAttribute("id").replace("compendium-", "Compendium.");
-        if ( compendium.getAttribute("data-labelled") ) {
-            continue;
-        } else {
-            // Add label to entries in the list
-            for (const entry of compendium.querySelectorAll(".compendium.directory li")) {
-                const labelText = entry.childNodes[3].innerText;
-                entry.setAttribute("aria-label", labelText);
-                entry.setAttribute("tabindex", 0);
-                // If the document is an item, also add a button to add it to selected actor (this likely only supports PF2E- should I add a setting to remove it for other systems?)
-                if ( entry.classList.contains("item") ) {
-                    //Create the button
-                    const label = document.createElement("label");
-                    label.innerHTML = `<button type="button">Add To Actor</button>`
-                    label.setAttribute("style", "max-width: 6rem");
-                    entry.appendChild(label);
-                    label.firstChild.addEventListener("click", () => {
-                        // Gather info
-                        const itemID = entry.getAttribute("data-uuid") || entry.getAttribute("data-document-id");                   //This isn't standardised between item types, but checking both gives us coverage
-                        const myActor = canvas.tokens.controlled[0]?.actor ?? game.user.character;
-                        const sourceCompendium = entry.offsetParent.getAttribute("id").replace("compendium-", "Compendium.");       //Why use good code when bad code do trick
-                        console.log(itemID + " button clicked in " + sourceCompendium + " by " + myActor.name);
-                        const itemUUID = sourceCompendium + ".Item." + itemID;
-                        addItemToActor(itemUUID, myActor);
-                    })
+    if ( game.settings.get('accessibility-enhancements', 'addItemButton') === true ) {
+        // Incredibly skillful way to check if the compendium's already been yassified
+        for ( const compendium of document.querySelectorAll("div.sidebar-popout.Compendium-sidebar")) {
+            const compendiumID = compendium.getAttribute("id").replace("compendium-", "Compendium.");
+            if ( compendium.getAttribute("data-labelled") ) {
+                continue;
+            } else {
+                // Add label to entries in the list
+                for (const entry of compendium.querySelectorAll(".compendium.directory li")) {
+                    const labelText = entry.childNodes[3].innerText;
+                    entry.setAttribute("aria-label", labelText);
+                    entry.setAttribute("tabindex", 0);
+                    // If the document is an item, also add a button to add it to selected actor (this likely only supports PF2E- should I add a setting to remove it for other systems?)
+                    if ( entry.classList.contains("item") ) {
+                        //Create the button
+                        const label = document.createElement("label");
+                        label.innerHTML = `<button type="button">Add To Actor</button>`
+                        label.setAttribute("style", "max-width: 6rem");
+                        entry.appendChild(label);
+                        label.firstChild.addEventListener("click", () => {
+                            // Gather info
+                            const itemID = entry.getAttribute("data-uuid") || entry.getAttribute("data-document-id");                   //This isn't standardised between item types, but checking both gives us coverage
+                            const myActor = canvas.tokens.controlled[0]?.actor ?? game.user.character;
+                            const sourceCompendium = entry.offsetParent.getAttribute("id").replace("compendium-", "Compendium.");       //Why use good code when bad code do trick
+                            console.log(itemID + " button clicked in " + sourceCompendium + " by " + myActor.name);
+                            const itemUUID = sourceCompendium + ".Item." + itemID;
+                            addItemToActor(itemUUID, myActor);
+                        })
+                    }
                 }
+                compendium.setAttribute("data-labelled", true);
             }
-            compendium.setAttribute("data-labelled", true);
         }
     }
 })

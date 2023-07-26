@@ -16,7 +16,7 @@ Hooks.on("init", () => {
 
     game.settings.register('accessibility-enhancements', 'leftClickTokenHUD', {
         name: 'Left Click TokenHUD',
-        hint: 'Left Click on owned tokens opens the Token HUD (Experimental)',
+        hint: 'Left Click on owned tokens opens the Token HUD (Core requires right click). Added to help a user who was playing on Ipad. Experimental, works but causes some odd behaviour if clicking rapidly',
         scope: 'client',
         config: true,
         type: Boolean,

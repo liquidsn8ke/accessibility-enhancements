@@ -9,7 +9,7 @@ Hooks.on("init", () => {
         scope: 'client',
         config: true,
         type: Boolean,
-        default: true,
+        default: false,
         onChange: value => {},
     });
 

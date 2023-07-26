@@ -2,7 +2,7 @@
   "id": "accessibility-enhancements",
   "title": "Accessibility Enhancements",
   "description": "Minor modifications to the Foundry interface to improve accessibility",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "authors": [{
     "name": "Cora"
   }],
@@ -22,6 +22,7 @@
   ],
   "url": "https://github.com/silvative/accessibility-enhancements",
   "manifest": "https://raw.githubusercontent.com/silvative/accessibility-enhancements/master/module.json",
-  "download": "https://github.com/silvative/accessibility-enhancements/archive/refs/heads/main.zip",
-  "readme": "https://github.com/silvative/accessibility-enhancements#readme"
+  "download": "https://github.com/silvative/accessibility-enhancements/archive/refs/tags/v0.2.1.zip",
+  "readme": "https://github.com/silvative/accessibility-enhancements#readme",
+  "changelog": "https://github.com/silvative/accessibility-enhancements#changelog"
 }

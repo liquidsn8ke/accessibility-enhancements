@@ -1,18 +1,10 @@
 This module provides several minor modifications to the Foundry interface in order to improve accessibility.
 
-I won't pretend that it's perfect - there are a lot of places with obvious paths for improvement that I have not taken due to a lack of time or skill. About the best I can say is that I did better than I had expected - this module's goal is more about getting the player experience closer to serviceable by patching obvious holes while we wait for core improvements. My hope is that others with higher power levels will see the terrible job I've done and improve on it. To that end, I've listed some of the known issues and limitations in this readme file- perhaps they can serve as inspiration to someone.
+It's far from perfect - there are a lot of places with obvious paths for improvement that I have not taken due to a lack of time or skill. About the best I can say is that I did better than I had expected - this module's goal is more about getting the player experience closer to serviceable by patching obvious holes while we wait for core improvements. My hope is that others will see the terrible job I've done and be inspired to outdo me. To that end, I've listed some of the known issues and limitations in this readme file- perhaps they can serve as inspiration to someone.
 
 **Code contributions are very, very welcome. I do not personally use a screen reader, so any support that can be offered is appreciated.**
 
 # Features
-
-## Labelled fields
-
-Several static UI elements have been given a label which allows screen readers to determine their function. This mostly affects buttons like the sidebar tab buttons or the scene controls, which don't have any inner text to fall back on and so weren't very accessible.
-
-Uses manually chosen labels for some and attempts to fallback automatically generated labels for others. I welcome feedback on labels which are unclear or too long, and any buttons which are missing labels.
-
-(Note: *IN THEORY*, this should work with modules that add new buttons to these locations, since I didn't hardcode any of the values. No guarantees though.)
 
 ## Drag & Drop Alternatives
 
@@ -31,7 +23,6 @@ The module provides two new ways to add items to a character that do not require
 If a compendium of items is open, the module adds a button beside each displayed item. Clicking on the button adds a copy of that item to your character.
 
 - I'd like to add the button to the compendium browser and the compendium sidebar tab too.
-- If the module is enabled in the world, the button shows for all users. It'd be better if the button was governed by a client-side setting so that sighted users could choose to disable it. That said, it's theoretically harmless if not even potentially useful even for them, so that's not so bad.
 
 ### Hotkey
 
@@ -43,7 +34,7 @@ The hotkey cannot be rebound but it can be disabled in the module settings.
 
 ## Audio Feedback
 
-Adds sound cues for certain actions to provide non-visual feedback that they were executed successfully. The sounds can be disabled by a clientside module setting.
+Adds sound cues for certain actions to provide non-visual feedback that they were executed successfully.
 
 ### Create Item
 
@@ -62,7 +53,6 @@ Some users use trackpads or touch interfaces or other control schemas that don't
 
 The module adds a setting (disabled by default) which give an alternate way to open the Token HUD.
 
-- Disabled by default because it seems potentially super annoying
 - Seems to behave kind of strangely sometimes, not extensively tested yet
 - I'd love to support clicking on an unowned token to target it, but I haven't spent much time on getting it working yet
 
@@ -76,3 +66,15 @@ Adds an optional override (configured in module settings) which takes a hatchet 
 - Though I would be happy if they enjoyed it, this setting was not primarily intended to appeal to users who are seeking a "conventional" dark mode character sheet. The goal was to maximise contrast, not prioritise aesthetics.
 - This setting may make the sheets harder to use for many users, especially in places where the colours were used to convey information. There may be some places (like the proficiency dropdown selector) which look objectively worse. 
 - There were several fields which sadly did not use variables to set their colours, requiring me to use gross overrides or important tags which are not best practice ordinarily. I would prefer to do this inside the system, but that will take additional investigation.
+
+# Removed Features
+
+These features appeared in older versions of the module but are no longer active.
+
+## Labelled fields (Rendered unnecessary by core change as of build 11.306)
+
+Several static UI elements have been given a label which allows screen readers to determine their function. This mostly affects buttons like the sidebar tab buttons or the scene controls, which don't have any inner text to fall back on and so weren't very accessible.
+
+Uses manually chosen labels for some and attempts to fallback automatically generated labels for others. I welcome feedback on labels which are unclear or too long, and any buttons which are missing labels.
+
+(Note: *IN THEORY*, this should work with modules that add new buttons to these locations, since I didn't hardcode any of the values. No guarantees though.)
