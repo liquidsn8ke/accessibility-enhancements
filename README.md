@@ -6,6 +6,13 @@ It's far from perfect - there are a lot of places with obvious paths for improve
 
 # Features
 
+Note: All features can be toggled per-client in the module settings:
+
+![image](https://github.com/silvative/accessibility-enhancements/assets/66365038/29ff170f-b8ee-4e30-97eb-39663d053d13)
+
+(A picture showing the module settings for this module, which list the features of the module and allow each to be enabled indepedendently.)
+
+
 ## Drag & Drop Alternatives
 
 The module provides two new ways to add items to a character that do not require drag and drop.
@@ -66,6 +73,13 @@ Adds an optional override (configured in module settings) which takes a hatchet 
 - Though I would be happy if they enjoyed it, this setting was not primarily intended to appeal to users who are seeking a "conventional" dark mode character sheet. The goal was to maximise contrast, not prioritise aesthetics.
 - This setting may make the sheets harder to use for many users, especially in places where the colours were used to convey information. There may be some places (like the proficiency dropdown selector) which look objectively worse. 
 - There were several fields which sadly did not use variables to set their colours, requiring me to use gross overrides or important tags which are not best practice ordinarily. I would prefer to do this inside the system, but that will take additional investigation.
+
+Preview images:
+
+![image](https://github.com/silvative/accessibility-enhancements/assets/66365038/29aea8d5-128d-48ac-baa3-a29b36d56e6e)
+![image](https://github.com/silvative/accessibility-enhancements/assets/66365038/cebe67b5-b10a-4323-90f8-079c227117bb)
+
+(Pictures of the high-contrast character sheets, which remove all coloured elements from the character sheets and maximise contrast, prioritising readability over aesthetics. There is a dark and light mode option.)
 
 # Removed Features
 
