@@ -1,3 +1,7 @@
+### v0.2.2
+
+- Updated high contrast (dark and light mode) CSS so that it looks better on the current character sheets
+
 ### v0.2.1
 
 - Removed the old labeling feature. It's no longer necessary since my PR to the core codebase was merged and released in v11 build 306!
