@@ -1,3 +1,11 @@
+### v0.3.0
+
+- Improved CSS structure
+- Replaced audio files
+
+New feature:
+- Added a "Portrait preview" feature to the Compendium Browser. If the setting is enabled (default is off), you can hover a creature's icon in the bestiary tab of the compendium browser to display its portrait artwork in an enlarged thumbnail (5 size options). Useful if you find the default icon size too small to make out any detail.
+
 ### v0.2.2
 
 - Updated high contrast (dark and light mode) CSS so that it looks better on the current character sheets
