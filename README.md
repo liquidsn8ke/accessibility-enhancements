@@ -6,12 +6,7 @@ It's far from perfect - there are a lot of places with obvious paths for improve
 
 # Features
 
-Note: All features can be toggled per-client in the module settings:
-
-![image](https://github.com/silvative/accessibility-enhancements/assets/66365038/29ff170f-b8ee-4e30-97eb-39663d053d13)
-
-(A picture showing the module settings for this module, which list the features of the module and allow each to be enabled indepedendently.)
-
+Note: All features can be toggled per-client in the module settings.
 
 ## Drag & Drop Alternatives
 
