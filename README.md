@@ -82,6 +82,11 @@ Preview images:
 
 Displays a creature's portrait artwork in an enlarged thumbnail (5 size options) when its icon is hovered in the compendium browser. Useful if you find the default icon size too small to make out any detail.
 
+![image](https://github.com/silvative/accessibility-enhancements/assets/66365038/c63c30b7-7262-4bd8-a46c-838ef78ce8a0)
+
+
+(A brief video clip of the portrait preview, using the artwork from the Token Pack: Bestaries module for demonstrative purposes.)
+
 # Removed Features
 
 These features appeared in older versions of the module but are no longer active.
