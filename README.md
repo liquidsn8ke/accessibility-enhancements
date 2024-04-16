@@ -65,7 +65,7 @@ The module adds a setting (disabled by default) which give an alternate way to o
 
 ## High Contrast Character Sheets
 
-**PF2E player character sheet only**
+**PF2E Player character sheet only**
 
 Adds an optional override (configured in module settings) which takes a hatchet to the PC character sheet to offer a "high-contrast" option. Both a dark and a light mode are offered. 
 
@@ -80,6 +80,12 @@ Preview images:
 ![image](https://github.com/silvative/accessibility-enhancements/assets/66365038/cebe67b5-b10a-4323-90f8-079c227117bb)
 
 (Pictures of the high-contrast character sheets, which remove all coloured elements from the character sheets and maximise contrast, prioritising readability over aesthetics. There is a dark and light mode option.)
+
+## Compendium Browser Image Preview
+
+**PF2E system only** (obviously)
+
+Displays a creature's portrait artwork in an enlarged thumbnail (5 size options) when its icon is hovered in the compendium browser. Useful if you find the default icon size too small to make out any detail.
 
 # Removed Features
 
