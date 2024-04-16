@@ -2,7 +2,7 @@
   "id": "accessibility-enhancements",
   "title": "Accessibility Enhancements",
   "description": "Minor modifications to the Foundry interface to improve accessibility",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "authors": [{
     "name": "Cora"
   }],
@@ -11,14 +11,15 @@
   "verified": "11"
   },
   "scripts": [
-    "./scripts/additems.js",
-    "./scripts/audiocues.js",
-    "./scripts/labeler.js",
-    "./scripts/norightclick.js",
-    "./scripts/highcontrast.js"
+    "scripts/additems.js",
+    "scripts/audiocues.js",
+    "scripts/labeler.js",
+    "scripts/norightclick.js",
+    "scripts/highcontrast.js",
+    "scripts/imagepreview.js"
   ],
   "styles": [
-    "highcontrast.css"
+    "styles/main.css"
   ],
   "url": "https://github.com/silvative/accessibility-enhancements",
   "manifest": "https://raw.githubusercontent.com/silvative/accessibility-enhancements/master/module.json",
