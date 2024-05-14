@@ -53,6 +53,7 @@
   /* The div with the currency icons on the Inventory page */
   /* The box around the currency icons */
   /* The item section headers in the inventory */
+  /* The encumbrance bar in the inventory screen */
 }
 .actor.sheet.character.high-contrast button:not(:disabled):hover {
   box-shadow: none !important;
@@ -96,9 +97,9 @@
   background: var(--background);
 }
 .actor.sheet.character.high-contrast .crb-style .pf-rank {
-  color: var(--text);
-  background: var(--background-2);
-  border: none;
+  color: var(--text) !important;
+  background: var(--background-2) !important;
+  border: none !important;
 }
 .actor.sheet.character.high-contrast .crb-style .tag {
   color: var(--text) !important;
@@ -148,6 +149,9 @@
 }
 .actor.sheet.character.high-contrast .inventory .items {
   border: none !important;
+}
+.actor.sheet.character.high-contrast .encumbrance-label {
+  color: white !important;
 }
 .actor.sheet.character.high-contrast .window-content {
   color: var(--text);
@@ -204,20 +208,20 @@
   color: var(--text) !important;
   background: var(--background) !important;
 }
+.actor.sheet.character.high-contrast .crb-style aside {
+  background: none !important;
+}
 .actor.sheet.character.high-contrast .crb-style aside .sidebar .armor-class .shield-stats ol li .shield-label svg path {
   fill: var(--background);
   stroke: var(--text);
 }
 .actor.sheet.character.high-contrast .crb-style aside .sidebar .hitpoints .hp-big .container.current-hp {
-  background: none;
+  background: none !important;
 }
 .actor.sheet.character.high-contrast .crb-style aside .sidebar div.shield {
-  background: none;
+  background: none !important;
 }
 .actor.sheet.character.high-contrast .crb-style header.char-header .char-level .level {
-  background: none;
-}
-.actor.sheet.character.high-contrast aside {
   background: none;
 }
 div.app#compendium-browser[imagePreview] [data-tab="bestiary"] li.item {

@@ -1,3 +1,7 @@
+### v0.3.1
+
+- Updated CSS to keep up with system updates
+
 ### v0.3.0
 
 - Improved CSS structure

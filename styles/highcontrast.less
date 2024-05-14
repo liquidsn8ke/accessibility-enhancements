@@ -108,9 +108,9 @@
 
     /* The modifiers buttons */
     .crb-style .pf-rank {
-        color: var(--text);
-        background: var(--background-2);
-        border: none;
+        color: var(--text) !important;
+        background: var(--background-2) !important;
+        border: none !important;
     }
     /* Tags (IWR etc) */
     .crb-style .tag {
@@ -171,6 +171,12 @@
         .items {
             border: none !important;
         }
+    }
+
+    /* The encumbrance bar in the inventory screen */
+    /* (This is the only place that should remain white in light mode bc the background is always dark) */
+    .encumbrance-label {
+        color: white !important;
     }
 
     .window-content {
@@ -240,24 +246,23 @@
         background: var(--background) !important;
     }
 
-    .crb-style aside .sidebar {
-        .armor-class .shield-stats ol li .shield-label svg path {
-            fill: var(--background);
-            stroke: var(--text);
-        }
-        .hitpoints .hp-big .container.current-hp {
-            background: none;
-        }
-        div.shield {
-            background: none;      
+    .crb-style aside {
+        background: none !important;
+        .sidebar {
+            .armor-class .shield-stats ol li .shield-label svg path {
+                fill: var(--background);
+                stroke: var(--text);
+            }
+            .hitpoints .hp-big .container.current-hp {
+                background: none !important;
+            }
+            div.shield {
+                background: none !important;      
+            }
         }
     }
 
     .crb-style header.char-header .char-level .level {
-        background: none;
-    }
-
-    aside {
         background: none;
     }
 
