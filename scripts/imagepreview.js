@@ -21,7 +21,7 @@ Hooks.on("init", () => {
 
 Hooks.on("renderCompendiumBrowser", () => {
     if ( game.settings.get('accessibility-enhancements', 'imagePreview') !== "off" ) {
-        for (const element of document.querySelectorAll("#compendium-browser")) {
+        for (const element of document.querySelectorAll("compendium-browser")) {
             let value = game.settings.get('accessibility-enhancements', 'imagePreview');
             element.setAttribute("imagePreview", value);
         }
